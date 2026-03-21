@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private PlayerActions inputActions;
+    // set in inspector
     public float movementSpeed = 6f;
+    public GameObject bulletPrefab;
+    public Transform bulletSpawnpoint;
+
+    // set in code
+    private PlayerActions inputActions;
     private const float LEFT_LIMIT = -8.4f;
     private const float RIGHT_LIMIT = 0f;
     private const float Y_LIMIT = 4.5f;
@@ -53,7 +58,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // bounds (double-checking)
+        if (input.Shoot.WasPressedThisFrame()) {
+            GameObject bulletObj = Instantiate(bulletPrefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
+        }
+
+        // movement bounds (double-checking)
 
         if (y_pos > Y_LIMIT){
             this.transform.position = new Vector3(x_pos, Y_LIMIT);

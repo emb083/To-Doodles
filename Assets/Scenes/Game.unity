@@ -565,6 +565,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1012067177}
+  - component: {fileID: 1012067178}
   m_Layer: 6
   m_Name: spawnRotation
   m_TagString: Untagged
@@ -588,6 +589,19 @@ Transform:
   - {fileID: 1271333330}
   m_Father: {fileID: 1332601343}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1012067178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012067176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2a81025b0cc895499424b1d27e101ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AimRotation
+  mainCamera: {fileID: 519420028}
 --- !u!1 &1271333329
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1100,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
-  - {fileID: 91112769}
+  - {fileID: 1332601343}
   - {fileID: 1305905174}
   - {fileID: 1580459761}
-  - {fileID: 1332601343}
+  - {fileID: 91112769}

@@ -149,7 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game
   enemySpawnDelay: 3
-  enemyPrefab: {fileID: 6155805324858258902, guid: 645afec56d2257345b08938fe2a1a97d, type: 3}
+  paperEnemyPrefab: {fileID: 6155805324858258902, guid: 645afec56d2257345b08938fe2a1a97d, type: 3}
+  bookEnemyPrefab: {fileID: 6155805324858258902, guid: a1239742a11d8c44787b63c45feec555, type: 3}
+  pythonEnemyPrefab: {fileID: 6155805324858258902, guid: 106ff1f2e619a744b83753c00aee15a3, type: 3}
   spawnRange: {fileID: 1580459760}
 --- !u!4 &91112769
 Transform:

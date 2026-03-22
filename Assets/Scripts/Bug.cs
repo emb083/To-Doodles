@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bug : MonoBehaviour
 {
     // set in inspector
-    public float bulletSpeed = 90f;
+    public float bulletSpeed = 15f;
 
     void Update() {
         this.transform.Translate(Vector3.right * bulletSpeed * Time.deltaTime);
@@ -11,12 +11,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Bounds")) {
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D c) {
-        if (c.gameObject.CompareTag("Enemy")) {
             Destroy(gameObject);
         }
     }

@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D c) {
         if (c.gameObject.CompareTag("Bullet")) {
             Destroy(gameObject);
+            Score.Instance.HitEnemy(gameObject.GetComponent<IsEnemyType>().type);
         }
     }
 }

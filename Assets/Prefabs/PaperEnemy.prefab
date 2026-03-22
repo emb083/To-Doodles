@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 6624334724616658747}
   - component: {fileID: 3053781860310980055}
   - component: {fileID: -7630318365342743645}
+  - component: {fileID: 5033899472659257111}
   m_Layer: 0
   m_Name: PaperEnemy
   m_TagString: Enemy
@@ -235,3 +236,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   enemySpeed: 4
+--- !u!114 &5033899472659257111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6155805324858258902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306918759c1595b4fae7c175f413ac15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IsEnemyType
+  type: 100

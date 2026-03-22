@@ -5,6 +5,8 @@ using Random = UnityEngine.Random;
 
 public class Game : MonoBehaviour
 {
+    public static Game Instance {get; private set;}
+
     // set in inspector
     public GameObject paperEnemyPrefab;
     public GameObject bookEnemyPrefab;
@@ -16,7 +18,8 @@ public class Game : MonoBehaviour
     // set in script
     private float enemySpawnTimer;
 
-    void Start() {
+    private void Awake() {
+        Instance = this;
         UpdateLevel(1);
     }
 
@@ -36,19 +39,19 @@ public class Game : MonoBehaviour
         
         switch (level) {
             case 2:
-                if (randChoice <= 0.75) {
-                    chosenEnemy = paperEnemyPrefab; // 75% chance
+                if (randChoice <= 0.6) {
+                    chosenEnemy = paperEnemyPrefab; // 60% chance
                 } else {
-                    chosenEnemy = bookEnemyPrefab; // 25% chance
+                    chosenEnemy = bookEnemyPrefab; // 40% chance
                 }
                 break;
             case 3:
                 if (randChoice <= 0.4) {
                     chosenEnemy = paperEnemyPrefab; // 40% chance
-                } else if (randChoice <= 0.8) {
-                    chosenEnemy = bookEnemyPrefab; // 40% chance
+                } else if (randChoice <= 0.75) {
+                    chosenEnemy = bookEnemyPrefab; // 35% chance
                 } else {
-                    chosenEnemy = pythonEnemyPrefab; // 20% chance
+                    chosenEnemy = pythonEnemyPrefab; // 25% chance
                 }
                 break;
             default: // default to level 1 behavior
@@ -67,7 +70,7 @@ public class Game : MonoBehaviour
         Instantiate(enemyPrefab, enemySpawnPt, Quaternion.identity);
     }
 
-    private void UpdateLevel(int newLevel) {
+    public void UpdateLevel(int newLevel) {
         switch (newLevel) {
             case 2:
                 level = 2;

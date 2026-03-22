@@ -14,16 +14,14 @@ public class PlayerMovement : MonoBehaviour
     private const float Y_LIMIT = 4.5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    void Start() {
         inputActions = new ();
         inputActions.Enable();
         inputActions.Standard.Enable();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         PlayerActions.StandardActions input = inputActions.Standard;
         float x_pos = this.transform.position.x;
         float y_pos = this.transform.position.y;

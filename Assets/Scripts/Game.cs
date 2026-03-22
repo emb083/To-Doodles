@@ -6,73 +6,86 @@ using Random = UnityEngine.Random;
 public class Game : MonoBehaviour
 {
     // set in inspector
-    public float enemySpawnDelay;
     public GameObject paperEnemyPrefab;
     public GameObject bookEnemyPrefab;
     public GameObject pythonEnemyPrefab;
     public BoxCollider2D spawnRange;
+    public float enemySpawnDelay;
+    public int level = 1;
 
     // set in script
     private float enemySpawnTimer;
 
-    void Awake() {
-        // Initialize level data
-
-        // Level 1
-        enemySpawnData l1PaperSpawn = new enemySpawnData {prefab=paperEnemyPrefab, weight=1f}; //100%
-        List<enemySpawnData> l1AllowedSpawns = new List<enemySpawnData> {l1PaperSpawn};
-        Level level1 = new Level() {number=1, enemySpawnDelay=2.0f, allowedSpawns=l1AllowedSpawns};
-
-        // Level 2
-        enemySpawnData l2PaperSpawn = new enemySpawnData {prefab=paperEnemyPrefab, weight=3f}; //75%
-        enemySpawnData l2BookSpawn = new enemySpawnData {prefab=bookEnemyPrefab, weight=4f}; //20%
-        List<enemySpawnData> l2AllowedSpawns = new List<enemySpawnData> {l2PaperSpawn};
-        Level level2 = new Level() {number=2, enemySpawnDelay=4.0f, allowedSpawns=l2AllowedSpawns};
-
-        // Level 3
-        enemySpawnData l3PaperSpawn = new enemySpawnData {prefab=paperEnemyPrefab, weight=4f}; //40%
-        enemySpawnData l3BookSpawn = new enemySpawnData {prefab=bookEnemyPrefab, weight=8f}; //40%
-        enemySpawnData l3PythonSpawn = new enemySpawnData {prefab=pythonEnemyPrefab, weight=10f}; //20%
-        List<enemySpawnData> l3AllowedSpawns = new List<enemySpawnData> {l3PaperSpawn};
-        Level level3 = new Level() {number=3, enemySpawnDelay=4.0f, allowedSpawns=l3AllowedSpawns};
+    void Start() {
+        UpdateLevel(1);
     }
 
     void Update() {
         // check spawn enemy
         enemySpawnTimer += Time.deltaTime;
         if (enemySpawnTimer >= enemySpawnDelay) {
-            SpawnEnemy();
+            GameObject enemy = ChooseEnemy();
+            SpawnEnemy(enemy);
             enemySpawnTimer = 0.0f;
         }
     }
 
-    private void SpawnEnemy() {
+    private GameObject ChooseEnemy() {
+        float randChoice = Random.value;
+        GameObject chosenEnemy;
+        
+        switch (level) {
+            case 2:
+                if (randChoice <= 0.75) {
+                    chosenEnemy = paperEnemyPrefab; // 75% chance
+                } else {
+                    chosenEnemy = bookEnemyPrefab; // 25% chance
+                }
+                break;
+            case 3:
+                if (randChoice <= 0.4) {
+                    chosenEnemy = paperEnemyPrefab; // 40% chance
+                } else if (randChoice <= 0.8) {
+                    chosenEnemy = bookEnemyPrefab; // 40% chance
+                } else {
+                    chosenEnemy = pythonEnemyPrefab; // 20% chance
+                }
+                break;
+            default: // default to level 1 behavior
+                chosenEnemy = paperEnemyPrefab; // 100% chance
+                break;
+        }
+
+        return chosenEnemy;
+    }
+
+    private void SpawnEnemy(GameObject enemyPrefab) {
         Vector3 enemySpawnPt = new Vector3(
             Random.Range(spawnRange.bounds.min.x, spawnRange.bounds.max.x),
             Random.Range(spawnRange.bounds.min.y, spawnRange.bounds.max.y),
             0);
-        Instantiate(paperEnemyPrefab, enemySpawnPt, Quaternion.identity);
+        Instantiate(enemyPrefab, enemySpawnPt, Quaternion.identity);
+    }
+
+    private void UpdateLevel(int newLevel) {
+        switch (newLevel) {
+            case 2:
+                level = 2;
+                enemySpawnDelay = 1.0f;
+                break;
+            case 3:
+                level = 3;
+                enemySpawnDelay = 0.75f;
+                break;
+            case 4:
+                level = 4;
+                enemySpawnDelay = 0.25f;
+                break;
+            default: // default to level 1
+                level = 1;
+                enemySpawnDelay = 1.5f;
+                break;
+        }
     }
 }
 
-public struct Level {
-    public int number;
-    public float enemySpawnDelay;
-    public List<enemySpawnData> allowedSpawns;
-
-    public Level(int levelNumber, float spawnDelay, List<enemySpawnData> spawns){
-        this.number = levelNumber;
-        this.enemySpawnDelay = spawnDelay;
-        this.allowedSpawns = spawns;
-    }
-}
-
-public struct enemySpawnData {
-    public GameObject prefab;
-    public float weight;
-
-    public enemySpawnData(GameObject enemyPrefab, float enemyWeight){
-        prefab = enemyPrefab;
-        weight = enemyWeight;
-    }
-}

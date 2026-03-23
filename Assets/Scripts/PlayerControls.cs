@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (input.Shoot.WasPressedThisFrame()) {
-            GameObject bulletObj = Instantiate(bulletPrefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
+            Instantiate(bulletPrefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
         }
 
         // movement bounds (double-checking)

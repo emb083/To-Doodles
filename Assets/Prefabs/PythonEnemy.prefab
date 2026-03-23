@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 176338956026527112}
   - component: {fileID: 4175377519085716759}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawn4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2329524068729262026}
   - component: {fileID: 2053055308046839113}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawn6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1554866986601514074}
   - component: {fileID: 4223636313568022870}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawn3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 6719031847086693632}
   - component: {fileID: 2001218775634881705}
   - component: {fileID: 5463495046521064994}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5615457434364682500}
   - component: {fileID: 245762150728467622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawn2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 3053781860310980055}
   - component: {fileID: -7630318365342743645}
   - component: {fileID: 2063038874854450030}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PythonEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6666114917014221220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BugSpawns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -617,7 +617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6343662691482756499}
   - component: {fileID: 7912076798863602792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawn1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,7 +695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 255268798919591687}
   - component: {fileID: 1511644666459021368}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawn5
   m_TagString: Untagged
   m_Icon: {fileID: 0}

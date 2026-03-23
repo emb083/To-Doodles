@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6719031847086693632}
   - component: {fileID: 2001218775634881705}
   - component: {fileID: 498996944290011339}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 3053781860310980055}
   - component: {fileID: -7630318365342743645}
   - component: {fileID: 5033899472659257111}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PaperEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -236,6 +236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   enemySpeed: 4
+  bugPrefab: {fileID: 0}
+  bugSpawns: []
 --- !u!114 &5033899472659257111
 MonoBehaviour:
   m_ObjectHideFlags: 0

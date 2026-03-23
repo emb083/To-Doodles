@@ -7,9 +7,15 @@ public class Enemy : MonoBehaviour
     public float enemySpeed = 0.1f;
     public GameObject bugPrefab = null;
     public List<Transform> bugSpawns = null;
+    public bool followsPlayer;
 
     void Update() {
-        this.transform.Translate(Vector3.left * enemySpeed * Time.deltaTime);
+        if (followsPlayer){
+            Vector3 playerPos = GetPlayerPosition.Instance.GetPos();
+            this.transform.position = Vector3.MoveTowards(transform.position, playerPos, (enemySpeed * Time.deltaTime));
+        } else {
+            this.transform.Translate(Vector3.left * enemySpeed * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D c) {

@@ -557,6 +557,7 @@ MonoBehaviour:
   - {fileID: 176338956026527112}
   - {fileID: 255268798919591687}
   - {fileID: 2329524068729262026}
+  followsPlayer: 1
 --- !u!114 &2063038874854450030
 MonoBehaviour:
   m_ObjectHideFlags: 0

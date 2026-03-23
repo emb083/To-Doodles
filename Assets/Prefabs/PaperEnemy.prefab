@@ -238,6 +238,7 @@ MonoBehaviour:
   enemySpeed: 4
   bugPrefab: {fileID: 0}
   bugSpawns: []
+  followsPlayer: 1
 --- !u!114 &5033899472659257111
 MonoBehaviour:
   m_ObjectHideFlags: 0

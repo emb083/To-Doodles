@@ -6,18 +6,23 @@ public class PlayerMovement : MonoBehaviour
     public float movementSpeed = 6f;
     public GameObject bulletPrefab;
     public Transform bulletSpawnpoint;
+    public AudioClip shoot;
+    public AudioClip hurt;
 
     // set in code
     private PlayerActions inputActions;
     private const float LEFT_LIMIT = -8.4f;
     private const float RIGHT_LIMIT = 0f;
     private const float Y_LIMIT = 4.5f;
+    private AudioSource audioSrc;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
         inputActions = new ();
         inputActions.Enable();
         inputActions.Standard.Enable();
+
+        audioSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -58,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (input.Shoot.WasPressedThisFrame()) {
             Instantiate(bulletPrefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
+            audioSrc.clip = shoot;
+            audioSrc.Play();
         }
 
         // movement bounds (double-checking)

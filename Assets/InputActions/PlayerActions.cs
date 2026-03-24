@@ -136,6 +136,15 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""9eaf1905-c027-4258-9168-140d4bed5673"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -259,6 +268,28 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57150928-a7b4-41db-98d3-56b4c3c59bd1"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""63ec849d-9585-4e3b-9bd5-ac2a250e9e96"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -272,6 +303,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_Standard_MoveLeft = m_Standard.FindAction("MoveLeft", throwIfNotFound: true);
         m_Standard_MoveRight = m_Standard.FindAction("MoveRight", throwIfNotFound: true);
         m_Standard_Shoot = m_Standard.FindAction("Shoot", throwIfNotFound: true);
+        m_Standard_Pause = m_Standard.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@PlayerActions()
@@ -357,6 +389,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Standard_MoveLeft;
     private readonly InputAction m_Standard_MoveRight;
     private readonly InputAction m_Standard_Shoot;
+    private readonly InputAction m_Standard_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "Standard".
     /// </summary>
@@ -388,6 +421,10 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Standard/Shoot".
         /// </summary>
         public InputAction @Shoot => m_Wrapper.m_Standard_Shoot;
+        /// <summary>
+        /// Provides access to the underlying input action "Standard/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_Standard_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -429,6 +466,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -455,6 +495,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -530,5 +573,12 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnShoot(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
     }
 }

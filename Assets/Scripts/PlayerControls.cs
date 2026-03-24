@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform bulletSpawnpoint;
     public AudioClip shoot;
     public AudioClip hurt;
+    public UI ui;
 
     // set in code
     private PlayerActions inputActions;
@@ -15,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private const float RIGHT_LIMIT = 0f;
     private const float Y_LIMIT = 4.5f;
     private AudioSource audioSrc;
-    private float gpa;
+    public float gpa;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
@@ -68,6 +69,10 @@ public class PlayerMovement : MonoBehaviour
             Instantiate(bulletPrefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
             audioSrc.clip = shoot;
             audioSrc.Play();
+        }
+
+        if (input.Pause.IsPressed()) {
+            ui.PauseGame();
         }
 
         // movement bounds (double-checking)

@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private const float RIGHT_LIMIT = 0f;
     private const float Y_LIMIT = 4.5f;
     private AudioSource audioSrc;
+    private float gpa;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
@@ -23,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Standard.Enable();
 
         audioSrc = GetComponent<AudioSource>();
+
+        gpa = 4.0f;
+        print($"GPA: {gpa}");
     }
 
     // Update is called once per frame
@@ -83,6 +87,30 @@ public class PlayerMovement : MonoBehaviour
 
         else if (x_pos < LEFT_LIMIT){
             this.transform.position = new Vector3(LEFT_LIMIT, y_pos);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D c) {
+        if (c.gameObject.CompareTag("Enemy")) {
+            audioSrc.clip = hurt;
+            audioSrc.Play();
+
+            switch (c.gameObject.GetComponent<IsEnemyType>().type) {
+                case IsEnemyType.EnemyType.Book:
+                    gpa -= 1f;
+                    break;
+                case IsEnemyType.EnemyType.Python:
+                    gpa -= 2f;
+                    break;
+                default: // defaults to paper
+                    gpa -= 0.5f;
+                    break;
+            }
+            print($"GPA: {gpa}");
+
+            if (gpa <= 0f){
+                Destroy(gameObject);
+            }
         }
     }
 }

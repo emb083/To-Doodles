@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     }
 
     void Update() {
-        if (followsPlayer){
+        if (followsPlayer && (GetPlayerPosition.Instance != null)){
             Vector3 playerPos = GetPlayerPosition.Instance.GetPos();
             this.transform.position = Vector3.MoveTowards(transform.position, playerPos, (enemySpeed * Time.deltaTime));
         } else {
@@ -58,12 +58,14 @@ public class Enemy : MonoBehaviour
                     AudioSource.PlayClipAtPoint(audioSrc.clip, this.transform.position);
                 }
             }
-
             audioSrc.loop = false;
             audioSrc.clip = death;
             AudioSource.PlayClipAtPoint(audioSrc.clip, this.transform.position);
             Destroy(gameObject);
             Score.Instance.HitEnemy(type);
+        }
+        else if (c.gameObject.CompareTag("Player")) {
+            Destroy(gameObject);
         }
     }
 

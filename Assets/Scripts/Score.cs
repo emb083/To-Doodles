@@ -12,13 +12,13 @@ public class Score : MonoBehaviour
     }
 
     void Update() {
-        if (score == 1500) {
+        if (score >= 1500 && score < 4500) {
             Game.Instance.UpdateLevel(2);
         }
-        else if (score == 4500) {
+        else if (score >= 4500 && score < 13000) {
             Game.Instance.UpdateLevel(3);
         }
-        else if (score == 13000) {
+        else if (score >= 13000) {
             Game.Instance.UpdateLevel(4);
         }
     }

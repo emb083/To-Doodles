@@ -8,11 +8,14 @@ public class UI : MonoBehaviour {
   public GameObject uiWin;
   public GameObject uiPause;
   public PlayerMovement playerControls;
+  public AudioClip buttonSound;
 
   public bool IsReady = false;
   public bool IsPaused = false;
   
   public static UI Instance {get; private set;}
+
+  private AudioSource audioSrc;
 
   private void Awake() {
     Instance = this;
@@ -24,6 +27,7 @@ public class UI : MonoBehaviour {
     uiGameover.SetActive(false);
     IsReady = false;
     Time.timeScale = 0f;
+    audioSrc = GetComponent<AudioSource>();
   }
 
   void Update() {
@@ -65,4 +69,9 @@ public class UI : MonoBehaviour {
         IsReady = false;
         Time.timeScale = 0f;
     }
+
+  public void PlayButtonSound(){
+        audioSrc.clip = buttonSound;
+        audioSrc.Play();
+  }
 }

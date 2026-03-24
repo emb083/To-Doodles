@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
         audioSrc = GetComponent<AudioSource>();
 
         gpa = 4.0f;
-        print($"GPA: {gpa}");
     }
 
     // Update is called once per frame
@@ -106,11 +105,16 @@ public class PlayerMovement : MonoBehaviour
                     gpa -= 0.5f;
                     break;
             }
-            print($"GPA: {gpa}");
 
             if (gpa <= 0f){
                 Destroy(gameObject);
             }
+        }
+        else if (c.gameObject.CompareTag("EnemyBullet")) {
+            audioSrc.clip = hurt;
+            audioSrc.Play();
+            gpa -= 0.5f;
+            print($"GPA: {gpa}");
         }
     }
 }

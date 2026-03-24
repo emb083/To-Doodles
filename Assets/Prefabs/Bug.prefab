@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8363726946127659180}
   - component: {fileID: 8887736971953548679}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: -8667858409451336219}
   - component: {fileID: 2061132469595772181}
   - component: {fileID: -3563764116607275875}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Bug
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}

@@ -14,4 +14,10 @@ public class Bug : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D c) {
+        if (c.gameObject.CompareTag("Player")) {
+            Destroy(gameObject);
+        }
+    }
 }

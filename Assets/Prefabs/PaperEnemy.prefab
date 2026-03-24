@@ -236,12 +236,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95676e9387504c84f9b03218e8e5729f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  enemySpeed: 4
+  enemySpeed: 7
   bugPrefab: {fileID: 0}
   bugSpawns: []
   followsPlayer: 1
   spawn: {fileID: 8300000, guid: ab26a8e936b267141b2582862e544b59, type: 3}
-  death: {fileID: 8300000, guid: 22d93054448c2ab4ba9722d18e12bc28, type: 3}
   bugs: {fileID: 0}
   gremlin: {fileID: 0}
 --- !u!114 &5033899472659257111
@@ -270,7 +269,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -12,18 +12,19 @@ public class Score : MonoBehaviour
     }
 
     void Update() {
-        if (score >= 1500 && score < 4500) {
+        if (score >= 4000 && score < 12500) {
             Game.Instance.UpdateLevel(2);
         }
-        else if (score >= 4500 && score < 13000) {
+        else if (score >= 12500 && score < 25000) {
             Game.Instance.UpdateLevel(3);
         }
-        else if (score >= 13000) {
+        else if (score >= 25000) {
             Game.Instance.UpdateLevel(4);
         }
     }
 
     public void HitEnemy(IsEnemyType.EnemyType type){
         score += (int)type;
+        print($"Score: {score}");
     }
 }

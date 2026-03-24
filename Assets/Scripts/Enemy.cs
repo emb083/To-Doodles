@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
     public List<Transform> bugSpawns = null;
     public bool followsPlayer;
     public AudioClip spawn;
-    public AudioClip death;
     public AudioClip bugs = null;
     public AudioClip gremlin = null;
 
@@ -58,9 +57,6 @@ public class Enemy : MonoBehaviour
                     AudioSource.PlayClipAtPoint(audioSrc.clip, this.transform.position);
                 }
             }
-            audioSrc.loop = false;
-            audioSrc.clip = death;
-            AudioSource.PlayClipAtPoint(audioSrc.clip, this.transform.position);
             Destroy(gameObject);
             Score.Instance.HitEnemy(type);
         }

@@ -74,11 +74,11 @@ public class Game : MonoBehaviour
         switch (newLevel) {
             case 2:
                 level = 2;
-                enemySpawnDelay = 1.0f;
+                enemySpawnDelay = 0.75f;
                 break;
             case 3:
                 level = 3;
-                enemySpawnDelay = 0.75f;
+                enemySpawnDelay = 0.5f;
                 break;
             case 4:
                 level = 4;
@@ -86,7 +86,7 @@ public class Game : MonoBehaviour
                 break;
             default: // default to level 1
                 level = 1;
-                enemySpawnDelay = 1.5f;
+                enemySpawnDelay = 1.0f;
                 break;
         }
     }

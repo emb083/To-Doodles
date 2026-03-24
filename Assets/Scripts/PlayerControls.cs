@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         if (input.Shoot.WasPressedThisFrame()) {
             Instantiate(bulletPrefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
             audioSrc.clip = shoot;
-            audioSrc.Play();
+            audioSrc.PlayOneShot(audioSrc.clip, 1.0f);
         }
 
         if (input.Pause.IsPressed()) {
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D c) {
         if (c.gameObject.CompareTag("Enemy")) {
             audioSrc.clip = hurt;
-            audioSrc.Play();
+            audioSrc.PlayOneShot(audioSrc.clip, 1.0f);
 
             switch (c.gameObject.GetComponent<IsEnemyType>().type) {
                 case IsEnemyType.EnemyType.Book:
@@ -117,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (c.gameObject.CompareTag("EnemyBullet")) {
             audioSrc.clip = hurt;
-            audioSrc.Play();
+            audioSrc.PlayOneShot(audioSrc.clip, 1.0f);
             gpa -= 0.5f;
             print($"GPA: {gpa}");
         }

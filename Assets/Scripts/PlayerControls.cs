@@ -115,7 +115,11 @@ public class PlayerMovement : MonoBehaviour
                     break;
             }
 
-            if (gpa <= 0f){
+            if (gpa < 0f){
+                gpa = 0f;
+            }
+
+            if (gpa == 0f){
                 Destroy(gameObject);
             }
         }

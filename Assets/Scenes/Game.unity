@@ -151,6 +151,7 @@ MonoBehaviour:
   paperEnemyPrefab: {fileID: 6155805324858258902, guid: 645afec56d2257345b08938fe2a1a97d, type: 3}
   bookEnemyPrefab: {fileID: 6155805324858258902, guid: a1239742a11d8c44787b63c45feec555, type: 3}
   pythonEnemyPrefab: {fileID: 6155805324858258902, guid: 106ff1f2e619a744b83753c00aee15a3, type: 3}
+  bossPrefab: {fileID: 6155805324858258902, guid: 5daf92b57edd5944bafa0b1486334abd, type: 3}
   spawnRange: {fileID: 1580459760}
   enemySpawnDelay: 0
   level: 1
@@ -824,7 +825,7 @@ GameObject:
   m_Component:
   - component: {fileID: 667655547}
   - component: {fileID: 667655548}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Down
   m_TagString: Bounds
   m_Icon: {fileID: 0}
@@ -1666,7 +1667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1305905174}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2311,7 +2312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1531730189}
   - component: {fileID: 1531730190}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Left
   m_TagString: Bounds
   m_Icon: {fileID: 0}
@@ -2542,7 +2543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1587818423}
   - component: {fileID: 1587818424}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Up
   m_TagString: Bounds
   m_Icon: {fileID: 0}
@@ -2909,7 +2910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1824364574}
   - component: {fileID: 1824364575}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Right
   m_TagString: Bounds
   m_Icon: {fileID: 0}

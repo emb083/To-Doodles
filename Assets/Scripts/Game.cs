@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
     public GameObject paperEnemyPrefab;
     public GameObject bookEnemyPrefab;
     public GameObject pythonEnemyPrefab;
+    public GameObject bossPrefab;
     public BoxCollider2D spawnRange;
     public float enemySpawnDelay;
     public int level = 1;
@@ -28,8 +29,14 @@ public class Game : MonoBehaviour
         enemySpawnTimer += Time.deltaTime;
         if (enemySpawnTimer >= enemySpawnDelay && enemySpawnDelay != 0f) {
             GameObject enemy = ChooseEnemy();
-            SpawnEnemy(enemy);
-            enemySpawnTimer = 0.0f;
+            if (enemy != bossPrefab){
+               SpawnEnemy(enemy);
+               enemySpawnTimer = 0.0f; 
+            } else {
+                SpawnBoss();
+                enemySpawnDelay = 0f;
+            }
+            
         }
     }
 
@@ -54,6 +61,9 @@ public class Game : MonoBehaviour
                     chosenEnemy = pythonEnemyPrefab; // 25% chance
                 }
                 break;
+            case 4:
+                chosenEnemy = bossPrefab;
+                break;
             default: // default to level 1 behavior
                 chosenEnemy = paperEnemyPrefab; // 100% chance
                 break;
@@ -70,6 +80,11 @@ public class Game : MonoBehaviour
         Instantiate(enemyPrefab, enemySpawnPt, Quaternion.identity);
     }
 
+    private void SpawnBoss() {
+        Vector3 bossSpawnPt = new Vector3(12.5f, -0.5f, 0);
+        Instantiate(bossPrefab, bossSpawnPt, Quaternion.identity);
+    }
+
     public void UpdateLevel(int newLevel) {
         switch (newLevel) {
             case 2:
@@ -82,7 +97,7 @@ public class Game : MonoBehaviour
                 break;
             case 4:
                 level = 4;
-                enemySpawnDelay = 0f;
+                // override spawn delay after boss spawns
                 break;
             default: // default to level 1
                 level = 1;

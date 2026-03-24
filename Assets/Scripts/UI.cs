@@ -12,6 +12,11 @@ public class UI : MonoBehaviour {
   public bool IsReady = false;
   public bool IsPaused = false;
   
+  public static UI Instance {get; private set;}
+
+  private void Awake() {
+    Instance = this;
+  }
 
   private void Start() {
     uiWin.SetActive(false);

@@ -26,7 +26,7 @@ public class Game : MonoBehaviour
     void Update() {
         // check spawn enemy
         enemySpawnTimer += Time.deltaTime;
-        if (enemySpawnTimer >= enemySpawnDelay) {
+        if (enemySpawnTimer >= enemySpawnDelay && enemySpawnDelay != 0f) {
             GameObject enemy = ChooseEnemy();
             SpawnEnemy(enemy);
             enemySpawnTimer = 0.0f;
@@ -82,7 +82,7 @@ public class Game : MonoBehaviour
                 break;
             case 4:
                 level = 4;
-                enemySpawnDelay = 0.25f;
+                enemySpawnDelay = 0f;
                 break;
             default: // default to level 1
                 level = 1;

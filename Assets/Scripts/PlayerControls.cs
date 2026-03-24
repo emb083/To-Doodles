@@ -72,7 +72,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (input.Pause.IsPressed()) {
-            ui.PauseGame();
+            if (ui.IsReady == false)
+            {
+                ui.PauseGame();
+            }
+            
         }
 
         // movement bounds (double-checking)

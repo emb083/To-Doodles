@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    private int score;
+    public int score;
 
     public static Score Instance {get; private set;}
 

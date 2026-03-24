@@ -9,7 +9,7 @@ public class UI : MonoBehaviour {
   public GameObject uiPause;
   public PlayerMovement playerControls;
 
-  public bool IsReady { get; private set; }
+  public bool IsReady = false;
   public bool IsPaused = false;
   
 
@@ -17,7 +17,6 @@ public class UI : MonoBehaviour {
     uiWin.SetActive(false);
     uiPause.SetActive(false);
     uiGameover.SetActive(false);
-    uiTitle.SetActive(true);
     IsReady = false;
     Time.timeScale = 0f;
   }
@@ -46,16 +45,19 @@ public class UI : MonoBehaviour {
 
   public void PauseGame() {
         uiPause.SetActive(true);
+        IsReady = false;
         Time.timeScale = 0f;
     }
 
     public void UnpauseGame() {
         uiPause.SetActive(false);
+        IsReady = true;
         Time.timeScale = 1f;
     }
 
   public void WinGame() {
         uiWin.SetActive(true);
+        IsReady = false;
         Time.timeScale = 0f;
     }
 }

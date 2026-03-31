@@ -25,6 +25,5 @@ public class Score : MonoBehaviour
 
     public void HitEnemy(IsEnemyType.EnemyType type){
         score += (int)type;
-        print($"Score: {score}");
     }
 }
